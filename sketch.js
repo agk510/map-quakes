@@ -21,6 +21,15 @@ function draw() {
 	}		
 
 	//count number of quakes at each Mercalli intensity
+	// http://earthquake.usgs.gov/learn/topics/mag_vs_int.php
+	// Magnitude	Typical Maximum
+	// Modified Mercalli Intensity
+	// 1.0 - 3.0	I                    unnoticeable
+	// 3.0 - 3.9	II - III             slightly noticeable
+	// 4.0 - 4.9	IV - V               little damage likely
+	// 5.0 - 5.9	VI - VII             moderate damage likely
+	// 6.0 - 6.9	VII - IX             considerable damange likely
+	// 7.0 and higher	VIII or higher   severe damage likely
 	var mercalliI = 0;
 	var mercalliIItoIII = 0;
 	var mercalliIVtoV = 0;
@@ -28,7 +37,18 @@ function draw() {
 	var mercalliVIItoIX = 0;
 	var mercalliVIIIplus = 0;
 	for (var j = 0; j < allMags.length(); j++) {
-
+		if (allMags[j] < 3.0)
+			mercalliI++;
+		else if (3.0 <= allMags[j] < 4.0)
+			mercalliIItoIII++;
+		else if (4.0 <= allMags[j] < 5.0)
+			mercalliIVtoV++;
+		else if (5.0 <= allMags[j] < 6.0)
+			mercalliVItoVII++;
+		else if (6.0 <= allMags[j] < 7.0)
+			mercalliVIItoIX++;
+		else 
+			mercalliVIIIplus++;
 	} 
 
  	//print total number of earthquakes in last hour
