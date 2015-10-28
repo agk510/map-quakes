@@ -62,10 +62,22 @@ function draw() {
 			mercalliVIIIplus++;
 	} 
 
-	//draw concentric circles to visualize all quakes
+	//draw concentric circles to visualize quakes for legend
+	//small quakes representation
+	fill(241,57,109, 150);
+	noStroke();
+	ellipse(width/3, 200, 25, 25);
+	//medium quakes
+	for (var i = 0; i < 2; i++) {
+		fill(241,57,109, 150 - i * 10);
+		noStroke();
+		ellipse(width/3, 300, 25 + 25 * i, 25 + 25 * i);
+	}
+
 	for (var i = 0; i < 3; i++) {
 		fill(241,57,109, 150 - i * 10);
-		ellipse(width/3, 300, 75 + 75 * i, 75 + 75 * i);
+		noStroke();
+		ellipse(width/3, 400, 25 + 25 * i, 25 + 25 * i);
 	}
 
 
