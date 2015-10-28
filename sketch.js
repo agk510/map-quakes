@@ -5,7 +5,7 @@ function preload() {
 }
 
 function setup() {
-	createCanvas(windowWidth, 0);
+	createCanvas(windowWidth, windowHeight);
   	ellipseMode(CENTER);
   	textAlign(CENTER);
 }
@@ -14,14 +14,15 @@ function setup() {
 function draw() {
 	background(193, 235, 250)
  	
-	//print total number of earthquakes in last hour
-	fill(65,61,61, 255);
+ 	//print total number of earthquakes in last hour
+	fill(241,57,109, 255);
 	textSize(20);
+	  	
   	if (table.getRowCount() === 1) {
-    	text("In the last hour, " + (table.getRowCount()) + " earthquake has occurred...", width/2, -200);
+    	text("In the last hour, " + table.getRowCount() + " earthquake has occurred...", width/2, 100);
   	}
   	else {
-    	text("In the last hour, " + (table.getRowCount()) + " earthquakes have occurred...", width/2, -200);
+    	text("In the last hour, " + table.getRowCount() + " earthquakes have occurred...", width/2, 100);
   	}
 
 }
