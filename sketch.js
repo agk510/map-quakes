@@ -14,6 +14,17 @@ function draw() {
 	textAlign(CENTER);
 	background(193, 235, 250)
  	
+ 	//print total number of earthquakes in last hour
+	fill(241,57,109, 255);
+	textSize(20);
+	  	
+  	if (table.getRowCount() === 1) {
+    	text("In the last hour, " + table.getRowCount() + " earthquake has occurred...", width/2, 100);
+  	}
+  	else {
+    	text("In the last hour, " + table.getRowCount() + " earthquakes have occurred...", width/2, 100);
+  	}
+
 	//load all the magnitudes
 	var allMags = [];
 	for (var i = 0; i < table.getRowCount(); i++) {
@@ -36,31 +47,31 @@ function draw() {
 	var mercalliVItoVII = 0;
 	var mercalliVIItoIX = 0;
 	var mercalliVIIIplus = 0;
-	for (var j = 0; j < allMags.length(); j++) {
-		if (allMags[j] < 3.0)
+	for (var i = 0; i < allMags.length; i++) {
+		if (allMags[i] < 3.0)
 			mercalliI++;
-		else if (3.0 <= allMags[j] < 4.0)
+		else if (3.0 <= allMags[i] && allMags[i] < 4.0)
 			mercalliIItoIII++;
-		else if (4.0 <= allMags[j] < 5.0)
+		else if (4.0 <= allMags[i] && allMags[i] < 5.0)
 			mercalliIVtoV++;
-		else if (5.0 <= allMags[j] < 6.0)
+		else if (5.0 <= allMags[i] && allMags[i] < 6.0)
 			mercalliVItoVII++;
-		else if (6.0 <= allMags[j] < 7.0)
+		else if (6.0 <= allMags[i] && allMags[i] < 7.0)
 			mercalliVIItoIX++;
-		else 
+		else
 			mercalliVIIIplus++;
 	} 
 
- 	//print total number of earthquakes in last hour
-	fill(241,57,109, 255);
-	textSize(20);
-	  	
-  	if (table.getRowCount() === 1) {
-    	text("In the last hour, " + table.getRowCount() + " earthquake has occurred...", width/2, 100);
-  	}
-  	else {
-    	text("In the last hour, " + table.getRowCount() + " earthquakes have occurred...", width/2, 100);
-  	}
+	//draw concentric circles to visualize all quakes
+	for (var i = 0; i < 3; i++) {
+		fill(241,57,109, 150 - i * 10);
+		ellipse(width/3, 300, 75 + 75 * i, 75 + 75 * i);
+	}
+
+
+
+
+ 	
 
 }
 
