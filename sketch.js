@@ -7,11 +7,11 @@ function preload() {
 function setup() {
 	createCanvas(windowWidth, windowHeight);
   	ellipseMode(CENTER);
-  	textAlign(CENTER);
-}
+  	}
 
 
 function draw() {
+	textAlign(CENTER);
 	background(193, 235, 250)
  	
  	//print total number of earthquakes in last hour
